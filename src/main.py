@@ -8,9 +8,9 @@ from requests.auth import HTTPBasicAuth
 from src.const.covalent_api import CONVALENT_API_URL
 from src.convalent_api_utils.wallet_actions import query_wallet
 
-app = Flask(__name__)
-
 CONVALENT_API_KEY: str = os.getenv("CONVALENT_API_KEY")
+PORT: int = 5000
+app = Flask(__name__)
 
 
 @app.route("/wallet_assets", methods=["GET"])
@@ -96,4 +96,4 @@ def get_wallet_transactions():
 
 
 if __name__ == "__main__":
-    app.run(debug=os.getenv("DEBUG", False))
+    app.run(debug=os.getenv("DEBUG", False), port=PORT)
