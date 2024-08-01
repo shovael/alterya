@@ -5,8 +5,8 @@ from flask import Flask, jsonify, request
 import requests
 from requests.auth import HTTPBasicAuth
 
-from src.const.covalent_api import CONVALENT_API_URL
-from src.convalent_api_utils.wallet_actions import query_wallet
+from const.covalent_api import CONVALENT_API_URL
+from convalent_api_utils.wallet_actions import query_wallet
 
 CONVALENT_API_KEY: str = os.getenv("CONVALENT_API_KEY")
 PORT: int = 5000
