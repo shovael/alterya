@@ -96,4 +96,4 @@ def get_wallet_transactions():
 
 
 if __name__ == "__main__":
-    app.run(debug=os.getenv("DEBUG", False), port=PORT)
+    app.run(host='0.0.0.0', debug=os.getenv("DEBUG", False), port=PORT)
