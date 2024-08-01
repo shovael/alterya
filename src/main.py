@@ -5,8 +5,8 @@ from flask import Flask, jsonify, request
 import requests
 from requests.auth import HTTPBasicAuth
 
-from const.covalent_api import CONVALENT_API_URL
-from convalent_api_utils.wallet_actions import query_wallet
+from src.const.covalent_api import CONVALENT_API_URL
+from src.convalent_api_utils.wallet_actions import query_wallet
 
 app = Flask(__name__)
 
@@ -89,10 +89,10 @@ def get_wallet_transactions():
 
     if response.status_code == 200:
         result = json.loads(response.text)
-        jsonify(result["data"])
+        return jsonify(result["data"])
     else:
         result = json.loads(response.text)
-        jsonify(result["'error_message'"]), response.status_code
+        return jsonify(result["'error_message'"]), response.status_code
 
 
 if __name__ == "__main__":
